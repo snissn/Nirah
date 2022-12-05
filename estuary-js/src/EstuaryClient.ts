@@ -192,7 +192,7 @@ export const addFiles = async (directory: string, name: string, apiKey?: string)
   });
   let path = `${directory}/${name}.car`;
  
-  let fileData = fs.readFileSync(path);
+  let fileData = await fs.readFileSync(path);
   console.log(fileData);
   try {
     let res = await axios.post(`https://upload.estuary.tech/content/add-car`, fileData, {
