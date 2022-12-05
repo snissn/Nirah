@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.0.4",
   "scripts": {
-    "dev": "next -p 3005",
+    "dev": "cd estuary-js/src; npm run build; cd ../../; next -p 3005",
     "build": "next build",
     "start": "next start",
     "script": "ts-node -O '{\"module\":\"commonjs\"}' scripts/index.js"
