@@ -1,10 +1,18 @@
 import styles from '@components/App.module.scss';
-
+import axios from 'axios';
 import * as React from 'react';
 import * as Requests from '@common/requests';
 import * as Utilities from '@common/utilities';
+import { penumbra as penumbraFromLib } from '@transcend-io/penumbra';
+
 
 import App from '@components/App';
+import dynamic from 'next/dynamic';
+import Example from '@root/components/test';
+
+const FileUploader = dynamic(() => import('@components/FileUploader'), {ssr:false,});
+
+
 
 function Home(props) {
   // NOTE(jim):
@@ -19,10 +27,12 @@ function Home(props) {
     fetchData();
   }, []);
 
+  
+
   return (
     <App title="Example" description="This is a website template" url="">
       <div className={styles.center}>
-        <p className={styles.paragraph}>From here, you can start any project you like.</p>
+        <FileUploader />
       </div>
     </App>
   );
