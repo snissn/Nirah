@@ -204,6 +204,7 @@ export const addFiles = async (directory: string, name: string, apiKey?: string)
     });
     return res.data;
   } catch (err) {
+    console.log(err.response?.data)
     console.log(`EstuaryJS(addFiles): Error status: ${err.response?.status}. Error code: ${err.code}. Error message: ${err.message}`);
     return err;
   }
