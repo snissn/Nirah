@@ -183,6 +183,12 @@ export const addFile = async (file: any, apiKey?: string) => {
   }
 };
 
+
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
 export const addFiles = async (directory: string, name: string, apiKey?: string) => {
   const API_KEY = process.env.Estuary_API_KEY || apiKey;
   await packToFs({
@@ -191,6 +197,7 @@ export const addFiles = async (directory: string, name: string, apiKey?: string)
     blockstore: new FsBlockStore(),
   });
   let path = `${directory}/${name}.car`;
+  await sleep(1000)
  
   let fileData = fs.readFileSync(path);
   console.log(fileData);
